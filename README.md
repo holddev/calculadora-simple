@@ -1,4 +1,4 @@
-# Calculadora simple 
+# 🧮Calculadora simple
 
 Esta es una calculadora simple, que realiza operaciones aritméticas básicas como adición, sustracción, producto, división e incluso el módulo.
 
