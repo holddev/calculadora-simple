@@ -16,3 +16,13 @@ Puedes clonar el repositorio o descargar el archivo ZIP del proyecto.
 
 ### Demostración
 <a href="https://alementary-calculator.pages.dev" target="_blank"><strong>🚀Live Demo</strong></a>
+
+## Vista Previa
+<div align="center">
+  <img src="./assets/capture.jpg" alt="captura del sitio web elementary-calculator.pages.dev" style="width: 50%; height: auto; object-fit:cover;"/>
+</div>
+
+### ¡Gracias por tu interés!
+
+¡Espero que lo disfrutes. Si tienes alguna duda o sugerencia, no dudes en contactarme. 💚💚💚
+
