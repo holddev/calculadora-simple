@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,16 +8,37 @@
     <title>Calculadora Básica online</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="shortcut icon" href="./assets/logo.ico" type="image/x-icon">
-    <meta name="description" content="Calculadora básica online. Realiza diversas operaciones matemáticas con una herramienta simple de usar.">
+    <meta name="description"
+        content="Calculadora básica online. Realiza diversas operaciones matemáticas con una herramienta simple de usar.">
     <meta name="author" content="Bernardo Lima">
     <meta name="robots" content="index, follow">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:url" content="https://elementary-calculator.pages.dev/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Calculadora Básica online">
+    <meta property="og:description"
+        content="Calculadora básica online. Realiza diversas operaciones matemáticas con una herramienta simple de usar.">
+    <meta property="og:image"
+        content="https://raw.githubusercontent.com/Usuario6842/calculadora-simple/main/assets/capture.jpg">
+    <meta property="og:image:width" content="1440">
+    <meta property="og:image:height" content="1080">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="twitter:domain" content="elementary-calculator.pages.dev">
+    <meta property="twitter:url" content="https://elementary-calculator.pages.dev/">
+    <meta name="twitter:title" content="Calculadora Básica online">
+    <meta name="twitter:description"
+        content="Calculadora básica online. Realiza diversas operaciones matemáticas con una herramienta simple de usar.">
+    <meta name="twitter:image"
+        content="https://raw.githubusercontent.com/Usuario6842/calculadora-simple/main/assets/capture.jpg">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+    </style>
     <script type="module" src="./script.js"></script>
 </head>
-
-<style>
-    @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
-</style>
-
 <body>
     <div class="wrapper active">
         <nav class="nav" aria-label="nevagación">
@@ -24,51 +46,58 @@
                 <a class="nav-a" title="Basic Calculator" href="index.html">Calculadora <span>Básica</span>
                 </a>
             </h1>
-            <button title="menu" class="nav-menu mode" aria-label="Cambiar a modo oscuro" role="switch">
+            <button type="button" title="menu" class="nav-menu mode" aria-label="Cambiar a modo oscuro" role="switch">
                 <label class="mode-label" for="darkmode-toggle">
-                    <svg version="1.1" class="sun" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                        x="0px" y="0px" viewBox="0 0 496 496" style="enable-background:new 0 0 496 496;" xml:space="preserve">
-            
+                    <svg version="1.1" class="sun" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 496 496"
+                        style="enable-background:new 0 0 496 496;" xml:space="preserve">
+
                         <rect x="152.994" y="58.921" transform="matrix(0.3827 0.9239 -0.9239 0.3827 168.6176 -118.5145)"
                             width="40.001" height="16" />
-                        <rect x="46.9" y="164.979" transform="matrix(0.9239 0.3827 -0.3827 0.9239 71.29 -12.4346)" width="40.001"
-                            height="16" />
+                        <rect x="46.9" y="164.979" transform="matrix(0.9239 0.3827 -0.3827 0.9239 71.29 -12.4346)"
+                            width="40.001" height="16" />
                         <rect x="46.947" y="315.048" transform="matrix(0.9239 -0.3827 0.3827 0.9239 -118.531 50.2116)"
                             width="40.001" height="16" />
-            
-                        <rect x="164.966" y="409.112" transform="matrix(-0.9238 -0.3828 0.3828 -0.9238 168.4872 891.7491)"
-                            width="16" height="39.999" />
-            
-                        <rect x="303.031" y="421.036" transform="matrix(-0.3827 -0.9239 0.9239 -0.3827 50.2758 891.6655)"
-                            width="40.001" height="16" />
-            
-                        <rect x="409.088" y="315.018" transform="matrix(-0.9239 -0.3827 0.3827 -0.9239 701.898 785.6559)"
-                            width="40.001" height="16" />
-            
-                        <rect x="409.054" y="165.011" transform="matrix(-0.9239 0.3827 -0.3827 -0.9239 891.6585 168.6574)"
-                            width="40.001" height="16" />
-                        <rect x="315.001" y="46.895" transform="matrix(0.9238 0.3828 -0.3828 0.9238 50.212 -118.5529)" width="16"
+
+                        <rect x="164.966" y="409.112"
+                            transform="matrix(-0.9238 -0.3828 0.3828 -0.9238 168.4872 891.7491)" width="16"
                             height="39.999" />
+
+                        <rect x="303.031" y="421.036"
+                            transform="matrix(-0.3827 -0.9239 0.9239 -0.3827 50.2758 891.6655)" width="40.001"
+                            height="16" />
+
+                        <rect x="409.088" y="315.018"
+                            transform="matrix(-0.9239 -0.3827 0.3827 -0.9239 701.898 785.6559)" width="40.001"
+                            height="16" />
+
+                        <rect x="409.054" y="165.011"
+                            transform="matrix(-0.9239 0.3827 -0.3827 -0.9239 891.6585 168.6574)" width="40.001"
+                            height="16" />
+                        <rect x="315.001" y="46.895" transform="matrix(0.9238 0.3828 -0.3828 0.9238 50.212 -118.5529)"
+                            width="16" height="39.999" />
                         <path d="M248,88c-88.224,0-160,71.776-160,160s71.776,160,160,160s160-71.776,160-160S336.224,88,248,88z M248,392
                             c-79.4,0-144-64.6-144-144s64.6-144,144-144s144,64.6,144,144S327.4,392,248,392z" />
                         <rect x="240" width="16" height="72" />
-                        <rect x="62.097" y="90.096" transform="matrix(0.7071 0.7071 -0.7071 0.7071 98.0963 -40.6334)" width="71.999"
-                            height="16" />
+                        <rect x="62.097" y="90.096" transform="matrix(0.7071 0.7071 -0.7071 0.7071 98.0963 -40.6334)"
+                            width="71.999" height="16" />
                         <rect y="240" width="72" height="16" />
-            
-                        <rect x="90.091" y="361.915" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 -113.9157 748.643)" width="16"
+
+                        <rect x="90.091" y="361.915"
+                            transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 -113.9157 748.643)" width="16"
                             height="71.999" />
                         <rect x="240" y="424" width="16" height="72" />
-            
-                        <rect x="361.881" y="389.915" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 397.8562 960.6281)"
-                            width="71.999" height="16" />
+
+                        <rect x="361.881" y="389.915"
+                            transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 397.8562 960.6281)" width="71.999"
+                            height="16" />
                         <rect x="424" y="240" width="72" height="16" />
-                        <rect x="389.911" y="62.091" transform="matrix(0.7071 0.7071 -0.7071 0.7071 185.9067 -252.6357)" width="16"
-                            height="71.999" />
+                        <rect x="389.911" y="62.091" transform="matrix(0.7071 0.7071 -0.7071 0.7071 185.9067 -252.6357)"
+                            width="16" height="71.999" />
                     </svg>
-                    <svg version="1.1" class="moon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                        x="0px" y="0px" viewBox="0 0 49.739 49.739" style="enable-background:new 0 0 49.739 49.739;"
-                        xml:space="preserve">
+                    <svg version="1.1" class="moon" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 49.739 49.739"
+                        style="enable-background:new 0 0 49.739 49.739;" xml:space="preserve">
                         <path d="M25.068,48.889c-9.173,0-18.017-5.06-22.396-13.804C-3.373,23.008,1.164,8.467,13.003,1.979l2.061-1.129l-0.615,2.268
                    c-1.479,5.459-0.899,11.25,1.633,16.306c2.75,5.493,7.476,9.587,13.305,11.526c5.831,1.939,12.065,1.492,17.559-1.258v0
                    c0.25-0.125,0.492-0.258,0.734-0.391l2.061-1.13l-0.585,2.252c-1.863,6.873-6.577,12.639-12.933,15.822
@@ -91,4 +120,5 @@
     </div>
     <script type="module" src="./index.js"></script>
 </body>
+
 </html>
