@@ -29,26 +29,32 @@ const $buttons = $calculator.querySelectorAll('button')
 const $display = $calculator.querySelector('.form-display')
 const $expresion = $display.querySelector('.display-expresion')
 const $currentValue = $display.querySelector('.display-value')
+
 let digit = '0'
+let expression = ''
 
 $buttons.forEach(($button) => {
 
     $button.addEventListener('click', (e) => {
         e.preventDefault()
 
-        if (e.target.classList == 'form-number') {
+        if (e.target.classList.contains('form-number')) {
             digit = $currentValue.value + e.target.textContent
             handleChangeInput(digit)
         }
 
-        if (e.target.classList == 'form-operator') {
-            $currentValue.value += e.target.textContent
-            handleOperator($currentValue.value)
+        if (e.target.classList.contains('form-operator')) {
+            digit = $currentValue.value
+            const operator = e.target.textContent
+            const currentValue = digit
+            expression += currentValue + operator
+            handleOperator({ currentValue, operator })
         }
 
         if (e.target.textContent == 'CE') {
             handleClearClick()
             digit = ''
+            expression = ''
         }
 
         if (e.target.textContent == 'C') {
@@ -56,34 +62,80 @@ $buttons.forEach(($button) => {
         }
 
         if (e.target.textContent == '=') {
-            digit = $currentValue.value
-            const expresion = $expresion.textContent.replace('=','') + digit;
-            handleResolveClick(expresion)
+            if(document.querySelector('.expresion-equal')) return
+            expression += $currentValue.value
+            const currentValue = $currentValue.value
+            $expresion.insertAdjacentHTML(
+                'beforeend', 
+                `<span>${currentValue}</span>
+                <span class='expresion-equal'> = </span>`
+            )
+            $currentValue.value = handleResolveClick(expression)
+            expression = ''
         }
+
+
     })
 })
 
 function handleChangeInput(number) {
     $currentValue.value = number
-    insertFormatValue($currentValue.value)
+    
+    const hasOperator = operators.some(operator => number.includes(operator))
+    const hasEqual = $currentValue.value.includes('=')
+    const isDecimal = $currentValue.value.includes('.')
+
+    if (hasOperator && !hasEqual) {
+        const operator = number.slice(-1)
+        const currentValue = number.slice(0, -1)
+        $currentValue.value = currentValue
+        expression += currentValue + operator
+        handleOperator({ currentValue, operator })
+    }
+
+    if (!isDecimal && !hasEqual) {
+        const formatedDigit = + $currentValue.value
+        $currentValue.value = formatedDigit
+    }
+
+    if(hasEqual){
+        $currentValue.value = number.slice(0, -1)
+
+        if(document.querySelector('.expresion-equal')) return
+        
+        expression += $currentValue.value
+        $expresion.insertAdjacentHTML(
+            'beforeend', 
+            `<span>${$currentValue.value}</span>
+            <span class='expresion-equal'> = </span>`
+        )
+        $currentValue.value = handleResolveClick(expression)
+        expression = ''
+    }
 }
 
-function handleOperator(expression) {
-    const operator = expression.slice(-1)
-    const currentNumber = expression.slice(0, -1)
-
-    if ($expresion.textContent.includes('=')) {
-        $expresion.textContent = currentNumber + operator
-    } else {
-        $expresion.textContent += currentNumber + operator
-        //$expresion.insertAdjacentHTML('beforeend','<x-number>'+'ok'+'</x-number>')
+function handleOperator({ currentValue, operator }) {
+    if(document.querySelector('.expresion-equal')){
+        $expresion.textContent = ''
+        $expresion.insertAdjacentHTML(
+            'beforeend',
+            `<span>${$currentValue.value}</span>
+            <span>${operator}</span>`
+        )
+        $currentValue.value = 0
+    }else{
+        $expresion.insertAdjacentHTML(
+            'beforeend',
+            `<span>${currentValue}</span>
+            <span>${operator}</span>`
+        )
+        $currentValue.value = 0
     }
-    $currentValue.value = ''
 }
 
 function handleClearClick() {
     $expresion.textContent = ''
-    $currentValue.value = '0'
+    $currentValue.value = 0
 }
 
 function handleRemoveClick() {
@@ -95,46 +147,17 @@ function handleRemoveClick() {
     }
 }
 
-function handleResolveClick(expression) {
+function handleResolveClick(equation) {
     try {
-        const hasOperator = operators.some(operator => $expresion.textContent.includes(operator))
-        
-        if (!hasOperator) {
-            const operationBasica = '0+'+$currentValue.value
-            console.log('basic',$currentValue.value)
-            $currentValue.value = eval(operationBasica)
-            $expresion.textContent = $currentValue.value + '='
-        } else {
-            $currentValue.value = eval(expression)
-            $expresion.textContent = expression + '='
-        }
-        
+        return eval(equation)
     } catch (error) {
-        $currentValue.value = 'SINTAXIS ERROR'
+        return 'SINTAXIS ERROR'
     }
 }
 
 $currentValue.addEventListener('input', (e) => {
     handleChangeInput(e.target.value)
-
-    if (e.target.value.includes('=')) {
-        const expresion = $expresion.textContent  + $currentValue.value.slice(0, -1)
-        e.target.value = $currentValue.value.slice(0, -1)
-        console.log('val',expresion,' ex', $currentValue.value)
-        handleResolveClick(expresion)
-    }
 })
 
-function insertFormatValue(value) {
-    const hasOperator = operators.some(operator => value.includes(operator))
-    if (hasOperator) {
-        handleOperator(value)
-    }
-
-    if (!value.includes('.') && !hasOperator && !value.includes('=')) {
-        const formatedDigit = + value
-        $currentValue.value = formatedDigit
-    }
-}
 
 

@@ -1,5 +1,4 @@
 :root {
-    --background-color: #87133a;
     --primary-color: #464040;
     --secondary-color: #fe9900;
     --text-number-color: #e4e4e4;
@@ -18,7 +17,6 @@
 }
 
 body {
-    /* background-color: var(--background-color); */
 	background:
 		  radial-gradient(circle farthest-side at 0% 50%,#6C0F2E 23.5%,#0000 0)51.5px 73.5px,
 		  radial-gradient(circle farthest-side at 0% 50%,#752700 24%,#0000 0)46.5px 73.5px,
@@ -28,7 +26,6 @@ body {
 		  linear-gradient(90deg,#752700 2%,#6C0F2E 0,#6C0F2E 98%,#752700 0%)0 0 #6C0F2E;
 	background-size: 98px 147px;
 	background-color: #6C0F2E;
-
 }
 
 .wrapper {
@@ -236,12 +233,29 @@ body {
     .display-title {
         display: flex;
         align-items: center;
+        font-size: 1.1em;
     }
 
     .display-expresion {
         display: flex;
         align-items: center;
-        letter-spacing: 5px;
+        gap: 5px;
+        font-size: 1.1em;
+        overflow-x: auto;
+        scrollbar-width: none;
+
+        span {
+            font-weight: bold;
+            color: #ede7e7;
+        }
+        
+        span:nth-child(even) {
+            color: #696969;
+        }
+    }
+    
+    .display-expresion::-webkit-scrollbar {
+        display: none;
     }
 
     .display-value {
