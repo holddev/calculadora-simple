@@ -15,7 +15,7 @@ Puedes clonar el repositorio o descargar el archivo ZIP del proyecto.
    [Descargar ZIP](https://github.com/Usuario6842/calculadora-simple/archive/refs/heads/main.zip)
 
 ### Demostración
-<a href="https://alementary-calculator.pages.dev" target="_blank"><strong>🚀Live Demo</strong></a>
+<a href="https://elementary-calculator.pages.dev" target="_blank"><strong>🚀Live Demo</strong></a>
 
 ## Vista Previa
 <div align="center">
